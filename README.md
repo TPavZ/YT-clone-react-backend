@@ -1,1 +1,1 @@
-# dCC_drf_jwt_backend_
+# drf_jwt_backend
