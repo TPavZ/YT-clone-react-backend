@@ -53,3 +53,14 @@ def user_replies(request, comment_id):
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def delete_reply(request, reply_id):
+    reply = Reply.objects.get(id=reply_id)
+    if request.user.id == reply.user.id:
+        serializer = ReplySerializer(reply, many=False) #will display deleted song
+        reply.delete()
+        return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
+    else:
+        return Response(status=status.HTTP_401_UNAUTHORIZED)
