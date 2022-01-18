@@ -52,9 +52,9 @@ def update_comment(request, comment_id):
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def delete_comment(request, comment_id):
-    comment = Reply.objects.get(id=comment_id)
+    comment = Comment.objects.get(id=comment_id)
     if request.user.id == comment.user.id:
-        serializer = ReplySerializer(comment, many=False) #will display deleted song
+        serializer = CommentSerializer(comment, many=False) #will display deleted song
         comment.delete()
         return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
     else:
@@ -76,6 +76,20 @@ def user_replies(request, comment_id):
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def update_reply(request, reply_id):
+
+    reply = Reply.objects.get(id=reply_id)
+    if request.user.id == reply.user.id:
+        serializer = ReplySerializer(reply, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    else:
+        return Response(status=status.HTTP_401_UNAUTHORIZED)
     
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
