@@ -1,0 +1,1041 @@
+{
+	"info": {
+		"_postman_id": "dccd2cf4-af8d-4d48-b091-a4758d149357",
+		"name": "DRF_JWT_Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register_User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"TESTnathan\",\r\n    \"password\": \"Password1234!\",\r\n    \"email\": \"test2@gmail.com\",\r\n    \"first_name\": \"Nathan\",\r\n    \"last_name\": \"Jaco\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/register/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login_User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"aschmidt\",\r\n    \"password\": \"Password1234!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh_Access",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh\": \"PASTE REFRESH TOKEN FROM LOGIN HERE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/login/refresh/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"login",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Get_All_Comments_For_Video",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/all/WMweEpGlu_U/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"all",
+								"WMweEpGlu_U",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get_All_Comments_For_Video",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/comments/all/WMweEpGlu_U/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"comments",
+										"all",
+										"WMweEpGlu_U",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 21:25:33 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "376"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"user\": {\n            \"id\": 2,\n            \"username\": \"aschmidt\"\n        },\n        \"video_id\": \"WMweEpGlu_U\",\n        \"text\": \"Favorite song!\",\n        \"likes\": 0,\n        \"dislikes\": 0\n    },\n    {\n        \"id\": 4,\n        \"user\": {\n            \"id\": 2,\n            \"username\": \"aschmidt\"\n        },\n        \"video_id\": \"WMweEpGlu_U\",\n        \"text\": \"This is def my favorite song!\",\n        \"likes\": 0,\n        \"dislikes\": 0\n    },\n    {\n        \"id\": 5,\n        \"user\": {\n            \"id\": 2,\n            \"username\": \"aschmidt\"\n        },\n        \"video_id\": \"WMweEpGlu_U\",\n        \"text\": \"TESTING FOR EDIT!\",\n        \"likes\": 0,\n        \"dislikes\": 0\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Add_Comment_To_Video",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDAxNjM0LCJpYXQiOjE2NDI1Mzc2MzQsImp0aSI6IjY1YmI4YzYyYmQ1ZDQwYzI5ODM5MWYzOTFjODNlMzljIiwidXNlcl9pZCI6Mn0.OvHgyrdrtgKMY7svzVHwG6zPozW5yNn06ZihNY90IaI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n        \"user\": {\r\n            \"id\": 2,\r\n            \"username\": \"aschmidt\"\r\n        },\r\n        \"video_id\": \"WMweEpGlu_U\",\r\n        \"text\": \"TESTING FOR DELETE!\",\r\n        \"likes\": 0,\r\n        \"dislikes\": 0\r\n    }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/addcomment/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"addcomment",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add_Comment_To_Video",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDAxNjM0LCJpYXQiOjE2NDI1Mzc2MzQsImp0aSI6IjY1YmI4YzYyYmQ1ZDQwYzI5ODM5MWYzOTFjODNlMzljIiwidXNlcl9pZCI6Mn0.OvHgyrdrtgKMY7svzVHwG6zPozW5yNn06ZihNY90IaI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "\r\n    {\r\n        \"user\": {\r\n            \"id\": 2,\r\n            \"username\": \"aschmidt\"\r\n        },\r\n        \"video_id\": \"WMweEpGlu_U\",\r\n        \"text\": \"TESTING FOR DELETE!\",\r\n        \"likes\": 0,\r\n        \"dislikes\": 0\r\n    }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/comments/addcomment/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"comments",
+										"addcomment",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 21:36:06 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "OPTIONS, POST"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "123"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 6,\n    \"user\": {\n        \"id\": 2,\n        \"username\": \"aschmidt\"\n    },\n    \"video_id\": \"WMweEpGlu_U\",\n    \"text\": \"TESTING FOR DELETE!\",\n    \"likes\": 0,\n    \"dislikes\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Update_Comment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDAxNjM0LCJpYXQiOjE2NDI1Mzc2MzQsImp0aSI6IjY1YmI4YzYyYmQ1ZDQwYzI5ODM5MWYzOTFjODNlMzljIiwidXNlcl9pZCI6Mn0.OvHgyrdrtgKMY7svzVHwG6zPozW5yNn06ZihNY90IaI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"user\": {\r\n            \"id\": 2,\r\n            \"username\": \"aschmidt\"\r\n        },\r\n        \"video_id\": \"WMweEpGlu_U\",\r\n        \"text\": \"TESTING FOR EDIT - I EDITED THIS!\",\r\n        \"likes\": 0,\r\n        \"dislikes\": 0\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/editcomment/5/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"editcomment",
+								"5",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update_Comment",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDAxNjM0LCJpYXQiOjE2NDI1Mzc2MzQsImp0aSI6IjY1YmI4YzYyYmQ1ZDQwYzI5ODM5MWYzOTFjODNlMzljIiwidXNlcl9pZCI6Mn0.OvHgyrdrtgKMY7svzVHwG6zPozW5yNn06ZihNY90IaI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\r\n        \"user\": {\r\n            \"id\": 2,\r\n            \"username\": \"aschmidt\"\r\n        },\r\n        \"video_id\": \"WMweEpGlu_U\",\r\n        \"text\": \"TESTING FOR EDIT - I EDITED THIS!\",\r\n        \"likes\": 0,\r\n        \"dislikes\": 0\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/comments/editcomment/5/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"comments",
+										"editcomment",
+										"5",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 21:26:58 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "PUT, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "137"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 5,\n    \"user\": {\n        \"id\": 2,\n        \"username\": \"aschmidt\"\n    },\n    \"video_id\": \"WMweEpGlu_U\",\n    \"text\": \"TESTING FOR EDIT - I EDITED THIS!\",\n    \"likes\": 0,\n    \"dislikes\": 0\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete_Comment",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDAxNjM0LCJpYXQiOjE2NDI1Mzc2MzQsImp0aSI6IjY1YmI4YzYyYmQ1ZDQwYzI5ODM5MWYzOTFjODNlMzljIiwidXNlcl9pZCI6Mn0.OvHgyrdrtgKMY7svzVHwG6zPozW5yNn06ZihNY90IaI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/deletecomment/6/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"deletecomment",
+								"6",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDAxNjM0LCJpYXQiOjE2NDI1Mzc2MzQsImp0aSI6IjY1YmI4YzYyYmQ1ZDQwYzI5ODM5MWYzOTFjODNlMzljIiwidXNlcl9pZCI6Mn0.OvHgyrdrtgKMY7svzVHwG6zPozW5yNn06ZihNY90IaI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/comments/deletecomment/6/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"comments",
+										"deletecomment",
+										"6",
+										""
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 21:37:14 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "DELETE, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "126"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": null,\n    \"user\": {\n        \"id\": 2,\n        \"username\": \"aschmidt\"\n    },\n    \"video_id\": \"WMweEpGlu_U\",\n    \"text\": \"TESTING FOR DELETE!\",\n    \"likes\": 0,\n    \"dislikes\": 0\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Replies",
+			"item": [
+				{
+					"name": "Get_Replies_To_Comment",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDAxNjM0LCJpYXQiOjE2NDI1Mzc2MzQsImp0aSI6IjY1YmI4YzYyYmQ1ZDQwYzI5ODM5MWYzOTFjODNlMzljIiwidXNlcl9pZCI6Mn0.OvHgyrdrtgKMY7svzVHwG6zPozW5yNn06ZihNY90IaI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/replies/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"replies",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get_Replies_To_Comment",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDAxNjM0LCJpYXQiOjE2NDI1Mzc2MzQsImp0aSI6IjY1YmI4YzYyYmQ1ZDQwYzI5ODM5MWYzOTFjODNlMzljIiwidXNlcl9pZCI6Mn0.OvHgyrdrtgKMY7svzVHwG6zPozW5yNn06ZihNY90IaI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/comments/replies/1/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"comments",
+										"replies",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 21:40:03 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, OPTIONS, POST"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "451"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"user\": {\n            \"id\": 3,\n            \"username\": \"TESTanna\"\n        },\n        \"text\": \"Yeah they are!\",\n        \"comment\": 1\n    },\n    {\n        \"id\": 2,\n        \"user\": {\n            \"id\": 4,\n            \"username\": \"TESTnathan\"\n        },\n        \"text\": \"You guys are crazy!\",\n        \"comment\": 1\n    },\n    {\n        \"id\": 3,\n        \"user\": {\n            \"id\": 2,\n            \"username\": \"aschmidt\"\n        },\n        \"text\": \"We should go see a concert!\",\n        \"comment\": 1\n    },\n    {\n        \"id\": 4,\n        \"user\": {\n            \"id\": 2,\n            \"username\": \"aschmidt\"\n        },\n        \"text\": \"Very soon!\",\n        \"comment\": 1\n    },\n    {\n        \"id\": 6,\n        \"user\": {\n            \"id\": 2,\n            \"username\": \"aschmidt\"\n        },\n        \"text\": \"TESTING FOR EDIT - I EDITED THIS!\",\n        \"comment\": 1\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Add_Reply_To_Comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDAxNjM0LCJpYXQiOjE2NDI1Mzc2MzQsImp0aSI6IjY1YmI4YzYyYmQ1ZDQwYzI5ODM5MWYzOTFjODNlMzljIiwidXNlcl9pZCI6Mn0.OvHgyrdrtgKMY7svzVHwG6zPozW5yNn06ZihNY90IaI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"user\": {\r\n            \"id\": 2,\r\n            \"username\": \"aschmidt\"\r\n        },\r\n        \"text\": \"TESTING FOR EDIT!\",\r\n        \"comment\": 1\r\n    }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/replies/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"replies",
+								"1",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add_Reply_To_Comment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDAxNjM0LCJpYXQiOjE2NDI1Mzc2MzQsImp0aSI6IjY1YmI4YzYyYmQ1ZDQwYzI5ODM5MWYzOTFjODNlMzljIiwidXNlcl9pZCI6Mn0.OvHgyrdrtgKMY7svzVHwG6zPozW5yNn06ZihNY90IaI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"user\": {\r\n            \"id\": 2,\r\n            \"username\": \"aschmidt\"\r\n        },\r\n        \"text\": \"TESTING FOR EDIT!\",\r\n        \"comment\": 1\r\n    }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/comments/replies/1/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"comments",
+										"replies",
+										"1",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 21:37:58 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, OPTIONS, POST"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 6,\n    \"user\": {\n        \"id\": 2,\n        \"username\": \"aschmidt\"\n    },\n    \"text\": \"TESTING FOR EDIT!\",\n    \"comment\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete_Reply",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDAxNjM0LCJpYXQiOjE2NDI1Mzc2MzQsImp0aSI6IjY1YmI4YzYyYmQ1ZDQwYzI5ODM5MWYzOTFjODNlMzljIiwidXNlcl9pZCI6Mn0.OvHgyrdrtgKMY7svzVHwG6zPozW5yNn06ZihNY90IaI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/deletereply/5/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"deletereply",
+								"5",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete_Reply",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDAxNjM0LCJpYXQiOjE2NDI1Mzc2MzQsImp0aSI6IjY1YmI4YzYyYmQ1ZDQwYzI5ODM5MWYzOTFjODNlMzljIiwidXNlcl9pZCI6Mn0.OvHgyrdrtgKMY7svzVHwG6zPozW5yNn06ZihNY90IaI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/comments/deletereply/5/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"comments",
+										"deletereply",
+										"5",
+										""
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 21:18:43 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "OPTIONS, DELETE"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "90"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": null,\n    \"user\": {\n        \"id\": 2,\n        \"username\": \"aschmidt\"\n    },\n    \"text\": \"TESTING FOR DELETE!\",\n    \"comment\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit_Reply",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDAxNjM0LCJpYXQiOjE2NDI1Mzc2MzQsImp0aSI6IjY1YmI4YzYyYmQ1ZDQwYzI5ODM5MWYzOTFjODNlMzljIiwidXNlcl9pZCI6Mn0.OvHgyrdrtgKMY7svzVHwG6zPozW5yNn06ZihNY90IaI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 6,\r\n    \"user\": {\r\n        \"id\": 2,\r\n        \"username\": \"aschmidt\"\r\n    },\r\n    \"text\": \"TESTING FOR EDIT - I EDITED THIS!\",\r\n    \"comment\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/editreply/6/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"editreply",
+								"6",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit_Reply",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQzNDAxNjM0LCJpYXQiOjE2NDI1Mzc2MzQsImp0aSI6IjY1YmI4YzYyYmQ1ZDQwYzI5ODM5MWYzOTFjODNlMzljIiwidXNlcl9pZCI6Mn0.OvHgyrdrtgKMY7svzVHwG6zPozW5yNn06ZihNY90IaI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 6,\r\n    \"user\": {\r\n        \"id\": 2,\r\n        \"username\": \"aschmidt\"\r\n    },\r\n    \"text\": \"TESTING FOR EDIT - I EDITED THIS!\",\r\n    \"comment\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/comments/editreply/6/",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"comments",
+										"editreply",
+										"6",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 21:39:19 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin"
+								},
+								{
+									"key": "Allow",
+									"value": "OPTIONS, PUT"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "101"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 6,\n    \"user\": {\n        \"id\": 2,\n        \"username\": \"aschmidt\"\n    },\n    \"text\": \"TESTING FOR EDIT - I EDITED THIS!\",\n    \"comment\": 1\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
