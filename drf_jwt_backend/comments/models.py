@@ -10,7 +10,7 @@ class Comment(models.Model):
     dislikes = models.IntegerField(null=True)
     
     
-class Reply(models.model):
+class Reply(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE, null=False)
     text = models.CharField(max_length=250, null=False)
