@@ -19,7 +19,7 @@ def get_all_comments(request, video_id):
     serializer = CommentSerializer(comments, many=True)
     return Response(serializer.data)
 
-@api_view(['POST', 'PUT'])
+@api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def user_comments(request):
 
@@ -31,12 +31,34 @@ def user_comments(request):
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    # elif request.method == 'PUT':
-    #     comment = Comment.objects.get()
-    #     cars = Car.objects.filter(user_id=request.user.id)
-    #     serializer = CarSerializer(cars, many=True)
-    #     return Response(serializer.data)
 
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def update_comment(request, comment_id):
+
+    print('User', f"{request.user.id} {request.user.email} {request.user.username}")
+
+    comment = Comment.objects.get(id=comment_id)
+    if request.user.id == comment.user.id:
+        serializer = CommentSerializer(comment, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    else:
+        return Response(status=status.HTTP_401_UNAUTHORIZED)
+
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def delete_comment(request, comment_id):
+    comment = Reply.objects.get(id=comment_id)
+    if request.user.id == comment.user.id:
+        serializer = ReplySerializer(comment, many=False) #will display deleted song
+        comment.delete()
+        return Response(serializer.data, status=status.HTTP_204_NO_CONTENT)
+    else:
+        return Response(status=status.HTTP_401_UNAUTHORIZED)
+    
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
 def user_replies(request, comment_id):
