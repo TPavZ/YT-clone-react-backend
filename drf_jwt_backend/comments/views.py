@@ -32,9 +32,6 @@ def get_user(request, user_id):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def user_comments(request):
-
-    print('User', f"{request.user.id} {request.user.email} {request.user.username}")
-
     if request.method == 'POST':
         serializer = CommentSerializer(data=request.data)
         if serializer.is_valid():
@@ -45,18 +42,13 @@ def user_comments(request):
 @api_view(['PUT'])
 @permission_classes([IsAuthenticated])
 def update_comment(request, comment_id):
-
-    print('User', f"{request.user.id} {request.user.email} {request.user.username}")
-
     comment = Comment.objects.get(id=comment_id)
-    if request.user.id == comment.user.id:
-        serializer = CommentSerializer(comment, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    else:
-        return Response(status=status.HTTP_401_UNAUTHORIZED)
+    serializer = CommentSerializer(comment, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
