@@ -8,5 +8,6 @@ urlpatterns = [
     path('editreply/<int:reply_id>/', views.update_reply),
     path('replies/<int:comment_id>/', views.user_replies),
     path('deletereply/<int:reply_id>/', views.delete_reply),
-    path('deletecomment/<int:comment_id>/', views.delete_comment)
+    path('deletecomment/<int:comment_id>/', views.delete_comment),
+    path('user/<int:user_id>/', views.get_user),
 ]

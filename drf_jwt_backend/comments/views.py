@@ -11,6 +11,8 @@ from .models import Reply
 from .serializers import CommentSerializer
 from .serializers import ReplySerializer
 from django.contrib.auth.models import User
+from .serializers import UserSerializer
+from django.contrib.auth.models import User
 
 # Create your views here.
 @api_view(['GET'])
@@ -18,6 +20,13 @@ from django.contrib.auth.models import User
 def get_all_comments(request, video_id):
     comments = Comment.objects.filter(video_id=video_id)
     serializer = CommentSerializer(comments, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_user(request, user_id):
+    user = User.objects.get(id=user_id)
+    serializer = UserSerializer(user, many=False)
     return Response(serializer.data)
 
 @api_view(['POST'])
