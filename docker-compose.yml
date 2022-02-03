@@ -30,4 +30,4 @@ services:
       - db
 
 volumes:
- - production_db_volume:
+  production_db_volume:
