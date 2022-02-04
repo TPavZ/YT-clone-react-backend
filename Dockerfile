@@ -1,5 +1,5 @@
 #version with python
-FROM python:3
+FROM python:3.10-slim-buster
 
 #new directory inside container to save changes to
 WORKDIR /usr/src/app
