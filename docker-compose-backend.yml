@@ -24,7 +24,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    command: sh ./entrypoint.sh
+    # command: sh ./entrypoint.sh
     ports:
       - 8000:8000
     depends_on:

@@ -1,7 +1,7 @@
 asgiref==3.4.1
 Django==4.0.2
-django-cors-headers==3.13.1
-djangorestframework==3.12.4
+django-cors-headers==3.11.0
+djangorestframework==3.13.1
 djangorestframework-simplejwt==5.0.0
 mysql-connector-python==8.0.26
 protobuf==3.19.0
