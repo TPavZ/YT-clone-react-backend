@@ -1,4 +1,4 @@
-set -e #exit for errors
+#set -e #exit for errors
 
 export DJANGO_SUPERUSER_USERNAME=admin
 export DJANGO_SUPERUSER_PASSWORD=admin
